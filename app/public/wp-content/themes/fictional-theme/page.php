@@ -28,7 +28,13 @@ while(have_posts()) {
     
     <?php } ?>
     
-    <?php if () { ?>
+    <?php 
+    
+    $noChildren = get_pages(array(
+      'child_of' => get_the_ID()
+    ));
+
+    if ($parent or $noChildren) { ?>
       <div class="page-links">
         <h2 class="page-links__title"><a href="<?php echo get_permalink($parent); ?>"><?php echo get_the_title($parent) ?></a></h2>
         <ul class="min-list">
